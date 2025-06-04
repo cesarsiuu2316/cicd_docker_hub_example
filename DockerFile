@@ -1,0 +1,18 @@
+# Use official python image from Docker Hub
+# Slim because it is smaller and more efficient
+FROM python:3.13-slim
+
+# Set the working directory 
+WORKDIR /app
+
+# Copy the directory into the container
+COPY . /app
+
+# Install dependencies in requirements.txt
+RUN uv add -r requirements.txt
+
+# Make port 5000 available to the world outside this container
+EXPOSE 5000
+
+# Run app.py when the container launches 
+CMD ["uv", "run", "app.py"]

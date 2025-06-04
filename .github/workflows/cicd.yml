@@ -25,12 +25,13 @@ jobs:
       - name: Install Dependencies with UV
         run: |
           uv venv
+          source .venv/bin/activate
           uv add -r requirements.txt
           uv add -r dev-requirements.txt
 
       - name: Run Tests
         run: |
-          pytest
+          uv run pytest
 
   build-and-publish:
     needs: build-and-test

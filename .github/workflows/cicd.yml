@@ -25,7 +25,6 @@ jobs:
       - name: Install Dependencies with UV
         run: |
           uv venv
-          source .venv/bin/activate
           uv add -r requirements.txt
           uv add -r dev-requirements.txt
 

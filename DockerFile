@@ -5,6 +5,9 @@ FROM python:3.13-slim
 # Set the working directory 
 WORKDIR /app
 
+# Install uv first (use pipx for isolated install, or pip)
+RUN pip install uv
+
 # Copy the directory into the container
 COPY . /app
 
